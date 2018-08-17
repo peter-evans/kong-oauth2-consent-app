@@ -107,7 +107,7 @@ $ curl -i -X POST \
   --data 'code=XXX' --insecure
 ```
 
-When the access token expires a new access token can be obtained using the refresh token.
+When the access token expires a new token can be obtained using the refresh token.
 
 ```bash
 $ curl -i -X POST \
