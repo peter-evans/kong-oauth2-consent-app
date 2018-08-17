@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorize Application</title>
+</head>
+<body>
+    <h1>Authorize Application</h1>
+    <p>
+        The application <b>{{.ApplicationName}}</b> would like permission to access your account.
+    </p>
+    <p>
+        Review requested permissions:
+    </p>    
+    <form action="/consent" method="POST">
+        <input type="hidden" name="ClientID" value="{{.ClientID}}">
+        <input type="hidden" name="ResponseType" value="{{.ResponseType}}">
+        <input type="hidden" name="Scopes" value="{{.Scopes}}">
+        <ul>
+            {{range .RequestedScopes}}
+                <li>{{.}}</li>
+            {{end}}
+        </ul>
+        <input type="submit" value="Authorize">
+    </form>
+</body>
+</html>

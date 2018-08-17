@@ -1,0 +1,45 @@
+@startuml
+
+actor "Resource Owner" as RO
+participant "Client\nApplication" as CL
+box "//''Authorization Server''//" #LightSteelBlue
+    participant "Consent\nApplication" as CA
+    participant "Kong\nOAuth 2.0 Plugin" as KO
+end box
+participant "Resource\nServer" as RS
+
+autonumber "<b>[000]"
+CL -> CA: Authorization request
+activate CA
+note over CA
+	Authorization request:
+	client_id
+	scope
+	response_type=code
+end note
+RO -> CA: Login & authorization consent
+CA -> KO: /oauth2/authorize
+activate KO
+KO --> CA : redirect_uri + \nauthorization code
+deactivate KO
+CA --> CL: Authorization code
+deactivate CA
+CL -> KO: /oauth2/token
+note over KO
+    Access token request:
+    grant_type=authorization_code
+    client_id
+    client_secret
+    authorization_code
+end note
+activate KO
+KO -> CL: access token + refresh token
+deactivate KO
+loop
+  CL -> RS: API call + access token
+  activate RS
+  RS --> CL: API call response
+  deactivate RS
+end
+
+@enduml
