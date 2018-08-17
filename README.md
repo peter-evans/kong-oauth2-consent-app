@@ -1,4 +1,5 @@
 # Kong OAuth 2.0 Consent Application
+[![Go Report Card](https://goreportcard.com/badge/github.com/peter-evans/kong-oauth2-consent-app)](https://goreportcard.com/report/github.com/peter-evans/kong-oauth2-consent-app)
 
 This is a sample consent application demonstrating the OAuth 2.0 Authorization Code Grant flow with [Kong, the microservice API gateway](https://konghq.com/).
 
