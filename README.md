@@ -5,8 +5,10 @@ This is a sample consent application demonstrating the OAuth 2.0 Authorization C
 
 ## OAuth 2.0 Authorization Code Grant Sequence
 
-In the traditional Authorization Code Grant flow the "authorization server" generally handles both obtaining consent from the user _and_ serving authorization codes and the subsequent access/refresh tokens.
-With Kong in the picture, the roles need to be split into two. Kong can serve authorization codes and access/refresh tokens but it has no functionality to obtain consent from the user.
+In the traditional Authorization Code Grant flow the "Authorization Server" generally handles both obtaining consent from the user _and_ serving authorization codes and the subsequent access/refresh tokens.
+With Kong in the picture, the roles need to be split into two. Kong can serve authorization codes and access/refresh tokens but it has no functionality to authenticate the user and obtain their consent.
+
+The following sequence diagram shows how the role of "Authorization Server" is split between an application to obtain consent from the user and Kong as the OAuth 2.0 provider.
 
 ![Authorization Code Grant](resources/authorization-code-grant.png?raw=true)
 
