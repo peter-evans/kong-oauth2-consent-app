@@ -13,10 +13,11 @@ With Kong in the picture, the roles need to be split into two. Kong can serve au
 
 #### Configure the environment
 
-1. Clone this repository.
+1. Install the sample consent app.
 
    ```bash
-   $ git clone https://github.com/peter-evans/kong-oauth2-consent-app.git
+   $ go get -u -d github.com/peter-evans/kong-oauth2-consent-app
+   $ cd $GOPATH/src/github.com/peter-evans/kong-oauth2-consent-app
    ```
 2. If you don't have a Kong instance available you can run a Kong stack locally with the [docker-compose configuration](docker-compose.yml) provided.
 
