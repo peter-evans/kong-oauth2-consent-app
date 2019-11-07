@@ -14,14 +14,15 @@ import (
 	"bytes"
 	"crypto/tls"
 	"encoding/json"
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/sessions"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/sessions"
 )
 
 var (
